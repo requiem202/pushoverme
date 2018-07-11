@@ -41,7 +41,7 @@ namespace PushoverMe
         /// <returns></returns>
         public PushoverMessage NewMessageWithSound(string message, string sound)
         {
-            return new PushoverMessage(message);
+            return new PushoverMessage(message, sound);
         }
         
         public async Task<HttpResponseMessage> SendAsync(PushoverMessage message, string userKey)
