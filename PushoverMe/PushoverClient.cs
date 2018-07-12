@@ -37,7 +37,7 @@ namespace PushoverMe
         /// Create a new message with specified sound.
         /// </summary>
         /// <param name="message"></param>
-        /// <param name="sound"><see cref="PushoverMe.Sound"/></param>
+        /// <param name="sound"><see cref="Sound"/></param>
         /// <returns></returns>
         public PushoverMessage NewMessageWithSound(string message, string sound)
         {
@@ -49,7 +49,7 @@ namespace PushoverMe
             var parameters = new List<KeyValuePair<string, string>>();
             parameters.Add(new KeyValuePair<string, string>("token", _appToken));
             parameters.Add(new KeyValuePair<string, string>("user", userKey));
-            parameters.Add(new KeyValuePair<string, string>("message", message.Text));
+            parameters.AddRange(message.ToKeyValuePairs());
             
             var content = new System.Net.Http.FormUrlEncodedContent(parameters);
 
